@@ -1,0 +1,55 @@
+Job id: 3359935
+Job name: s02_summarise_fastqc
+Allocated node: cpu-e-4
+Time: Thu 28 Jun 16:50:28 BST 2018
+
+Initial working folder:
+/rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f04_fastc_after_trimming
+
+------------------ Output ------------------
+
+Summarise fastqc
+Thu 28 Jun 16:50:28 BST 2018
+
+base_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq
+data_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d02_trimmed_fastq/fastqc
+output_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d02_trimmed_fastq/fastqc_summary
+read_counts_file: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d02_trimmed_fastq/fastqc_summary/read_counts.txt
+summary_file: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d02_trimmed_fastq/fastqc_summary/summary.txt
+
+Found 1082 fast-qc folders
+Completed
+Thu 28 Jun 16:51:13 BST 2018
+
+Quick checks
+
+1083 /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d02_trimmed_fastq/fastqc_summary/read_counts.txt
+sample_no	illumina_id	lane_no	read_no	Count
+155	S321	L008	R1	1299682
+387	S94	L007	R2	1067523
+383	S80	L007	R2	2041388
+188	S417	L008	R1	798530
+212	S452	L008	R2	696164
+58	S291	L008	R1	692928
+257	S387	L008	R2	660364
+522	S472	L008	R1	1008024
+305	S104	L007	R2	778766
+
+94	S143	L007	R1	619017
+94	S143	L007	R2	619017
+
+1083 /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d02_trimmed_fastq/fastqc_summary/summary.txt
+sample_no	illumina_id	lane_no	read_no	Basic_Statistics	Per_base_sequence_quality	Per_tile_sequence_quality	Per_sequence_quality_scores	Per_base_sequence_content	Per_sequence_GC_content	Per_base_N_content	Sequence_Length_Distribution	Sequence_Duplication_Levels	Overrepresented_sequences	Adapter_Content
+155	S321	L008	R1	PASS	PASS	PASS	PASS	WARN	FAIL	PASS	WARN	FAIL	WARN	PASS
+387	S94	L007	R2	PASS	PASS	WARN	PASS	FAIL	FAIL	PASS	WARN	FAIL	WARN	PASS
+383	S80	L007	R2	PASS	PASS	WARN	PASS	FAIL	FAIL	PASS	WARN	FAIL	WARN	PASS
+188	S417	L008	R1	PASS	PASS	PASS	PASS	WARN	FAIL	PASS	WARN	FAIL	WARN	PASS
+212	S452	L008	R2	PASS	PASS	WARN	PASS	FAIL	FAIL	PASS	WARN	FAIL	WARN	PASS
+58	S291	L008	R1	PASS	PASS	PASS	PASS	WARN	FAIL	PASS	WARN	FAIL	WARN	PASS
+257	S387	L008	R2	PASS	PASS	WARN	PASS	FAIL	FAIL	PASS	WARN	FAIL	WARN	PASS
+522	S472	L008	R1	PASS	PASS	PASS	PASS	FAIL	FAIL	PASS	WARN	FAIL	WARN	PASS
+305	S104	L007	R2	PASS	PASS	WARN	PASS	FAIL	FAIL	PASS	WARN	FAIL	WARN	PASS
+
+94	S143	L007	R1	PASS	PASS	PASS	PASS	FAIL	FAIL	PASS	WARN	FAIL	WARN	PASS
+94	S143	L007	R2	PASS	PASS	PASS	PASS	FAIL	FAIL	PASS	WARN	FAIL	WARN	PASS
+

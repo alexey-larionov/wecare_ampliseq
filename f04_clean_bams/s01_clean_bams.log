@@ -1,0 +1,54 @@
+Job id: 3444589
+Job name: s01_clean_bams
+Allocated node: cpu-e-203
+Time: Sat 30 Jun 18:02:23 BST 2018
+
+Initial working folder:
+/rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f04_clean_bams
+
+------------------ Output ------------------
+
+Launch cleaning of BAMs in batches
+Sat 30 Jun 18:02:23 BST 2018
+
+scripts_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f04_clean_bams
+raw_bam_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d03_raw_bams
+clean_bam_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d04_clean_bams
+
+Java:
+openjdk version "1.8.0_171"
+OpenJDK Runtime Environment (build 1.8.0_171-b10)
+OpenJDK 64-Bit Server VM (build 25.171-b10, mixed mode)
+
+picard: /rds/project/erf33/rds-erf33-medgen/tools/picard/picard-2.18.7/picard.jar
+
+library: wecare_ampliseq_01
+platform: illumina
+flowcell: HVMMTBBXX
+
+Detected 541 bam files in the source folder
+Made 19 batches of up to 30 samples each
+
+18:05:48 Done batch 1
+18:09:20 Done batch 2
+18:12:15 Done batch 3
+18:15:03 Done batch 4
+18:18:43 Done batch 5
+18:23:18 Done batch 6
+18:26:00 Done batch 7
+18:29:04 Done batch 8
+18:33:44 Done batch 9
+18:36:53 Done batch 10
+18:40:06 Done batch 11
+18:44:33 Done batch 12
+18:47:31 Done batch 13
+18:52:34 Done batch 14
+18:54:58 Done batch 15
+18:58:39 Done batch 16
+19:01:42 Done batch 17
+19:04:40 Done batch 18
+19:05:46 Done batch 19
+
+Done all tasks
+Sat 30 Jun 19:05:46 BST 2018
+

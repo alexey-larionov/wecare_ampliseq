@@ -1,0 +1,148 @@
+Clean and validate raw bam
+Fri 29 Jun 22:15:56 BST 2018
+
+sample: 103_S147_L007
+
+raw_bam_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d03_bams/n01_raw_bams
+clean_bam_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d03_bams/n02_clean_bams
+
+samtools: /rds/project/erf33/rds-erf33-medgen/tools/samtools/samtools-1.8/bin/samtools
+picard: /rds/project/erf33/rds-erf33-medgen/tools/picard/picard-2.18.7/picard.jar
+htsjdk: /rds/project/erf33/rds-erf33-medgen/tools/htsjdk/htsjdk-2.16.0/htsjdk-2.16.0-4-gc4912e9-SNAPSHOT.jar
+
+openjdk version "1.8.0_171"
+OpenJDK Runtime Environment (build 1.8.0_171-b10)
+OpenJDK 64-Bit Server VM (build 25.171-b10, mixed mode)
+
+library: wecare_ampliseq_01
+platform: illumina
+flowcell: HVMMTBBXX
+
+Started sorting by name (required by fixmate)
+Completed sorting by name: 22:16:18
+
+Started fixing mate-pairs
+Completed fixing mate-pairs: 22:16:36
+
+Started sorting by coordinate
+Completed sorting by coordinate: 22:16:47
+
+Started fixing bam bins field errors
+Completed fixing bam bins field errors: 29Jun2018_22:16:55
+
+Started cleaning BAM file
+22:16:55.517 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/rds/project/erf33/rds-erf33-medgen/tools/picard/picard-2.18.7/picard.jar!/com/intel/gkl/native/libgkl_compression.so
+Completed bam cleaning: 29Jun2018_22:17:03
+
+Started adding read group information
+22:17:04.055 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/rds/project/erf33/rds-erf33-medgen/tools/picard/picard-2.18.7/picard.jar!/com/intel/gkl/native/libgkl_compression.so
+Completed indexing and adding read group information: 22:17:13
+
+Started bam validation
+22:17:14.206 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/rds/project/erf33/rds-erf33-medgen/tools/picard/picard-2.18.7/picard.jar!/com/intel/gkl/native/libgkl_compression.so
+[Fri Jun 29 22:17:14 BST 2018] ValidateSamFile INPUT=/rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d03_bams/n02_clean_bams/103_S147_L007_fixmate_sort_binfix_clean_rg.bam    MODE=VERBOSE MAX_OUTPUT=100 IGNORE_WARNINGS=false VALIDATE_INDEX=true INDEX_VALIDATION_STRINGENCY=EXHAUSTIVE IS_BISULFITE_SEQUENCED=false MAX_OPEN_TEMP_FILES=8000 SKIP_MATE_VALIDATION=false VERBOSITY=INFO QUIET=false VALIDATION_STRINGENCY=STRICT COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_INDEX=false CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json USE_JDK_DEFLATER=false USE_JDK_INFLATER=false
+[Fri Jun 29 22:17:14 BST 2018] Executing as al720@cpu-e-33.data.cluster on Linux 3.10.0-693.25.7.el7.csd3.x86_64 amd64; OpenJDK 64-Bit Server VM 1.8.0_171-b10; Deflater: Intel; Inflater: Intel; Provider GCS is not available; Picard version: 2.18.7-SNAPSHOT
+ERROR: Record 816, Read name K00178:90:HVMMTBBXX:7:1103:2909:4462, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 11276, Read name K00178:90:HVMMTBBXX:7:1210:18182:29870, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 12242, Read name K00178:90:HVMMTBBXX:7:1114:14600:9280, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 12272, Read name K00178:90:HVMMTBBXX:7:1103:29762:6325, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 12274, Read name K00178:90:HVMMTBBXX:7:1103:29944:6044, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 12512, Read name K00178:90:HVMMTBBXX:7:1227:28889:26969, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 12830, Read name K00178:90:HVMMTBBXX:7:2126:6522:15504, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 12988, Read name K00178:90:HVMMTBBXX:7:1220:2635:9121, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 16022, Read name K00178:90:HVMMTBBXX:7:2201:24434:4514, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 16058, Read name K00178:90:HVMMTBBXX:7:2213:29833:26002, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 16692, Read name K00178:90:HVMMTBBXX:7:2104:28087:12954, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 16811, Read name K00178:90:HVMMTBBXX:7:2128:10663:23557, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 17117, Read name K00178:90:HVMMTBBXX:7:2202:26971:35075, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 22288, Read name K00178:90:HVMMTBBXX:7:2208:23500:37466, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 22889, Read name K00178:90:HVMMTBBXX:7:1213:2544:6958, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 25206, Read name K00178:90:HVMMTBBXX:7:2223:20090:19953, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 28341, Read name K00178:90:HVMMTBBXX:7:2119:7547:47172, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 33093, Read name K00178:90:HVMMTBBXX:7:2125:30127:46838, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 35739, Read name K00178:90:HVMMTBBXX:7:1224:25966:7978, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 36763, Read name K00178:90:HVMMTBBXX:7:1114:27225:35761, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 40298, Read name K00178:90:HVMMTBBXX:7:2124:16823:10598, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 41345, Read name K00178:90:HVMMTBBXX:7:2121:10155:43884, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 41796, Read name K00178:90:HVMMTBBXX:7:2113:11201:27584, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 46880, Read name K00178:90:HVMMTBBXX:7:1109:7679:11214, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 46991, Read name K00178:90:HVMMTBBXX:7:2122:28229:25228, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 47154, Read name K00178:90:HVMMTBBXX:7:2201:8430:43181, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 47198, Read name K00178:90:HVMMTBBXX:7:2227:18578:28446, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 47594, Read name K00178:90:HVMMTBBXX:7:2116:20476:31839, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 48654, Read name K00178:90:HVMMTBBXX:7:2215:28057:10968, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 49139, Read name K00178:90:HVMMTBBXX:7:2222:16843:30855, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 51413, Read name K00178:90:HVMMTBBXX:7:2112:24231:26248, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 55330, Read name K00178:90:HVMMTBBXX:7:2108:7892:41475, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 57919, Read name K00178:90:HVMMTBBXX:7:1215:23216:47911, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 59832, Read name K00178:90:HVMMTBBXX:7:2211:14093:14484, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 61169, Read name K00178:90:HVMMTBBXX:7:1116:17959:17069, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 61580, Read name K00178:90:HVMMTBBXX:7:2124:12926:25052, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 62234, Read name K00178:90:HVMMTBBXX:7:2218:4553:37554, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 62637, Read name K00178:90:HVMMTBBXX:7:2117:28250:5394, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 65657, Read name K00178:90:HVMMTBBXX:7:2126:19268:22889, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 66576, Read name K00178:90:HVMMTBBXX:7:1125:21552:36200, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 68183, Read name K00178:90:HVMMTBBXX:7:2117:10805:47858, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 69526, Read name K00178:90:HVMMTBBXX:7:1114:22059:43198, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 71854, Read name K00178:90:HVMMTBBXX:7:2224:13727:38855, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 71868, Read name K00178:90:HVMMTBBXX:7:2209:9648:8295, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 73103, Read name K00178:90:HVMMTBBXX:7:2108:3549:36657, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 77010, Read name K00178:90:HVMMTBBXX:7:2106:27559:45449, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 77502, Read name K00178:90:HVMMTBBXX:7:2115:13240:12480, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 80383, Read name K00178:90:HVMMTBBXX:7:2201:21592:1595, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 81731, Read name K00178:90:HVMMTBBXX:7:2124:16569:27320, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 81892, Read name K00178:90:HVMMTBBXX:7:2208:19745:20797, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 82378, Read name K00178:90:HVMMTBBXX:7:1210:16122:36816, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 82645, Read name K00178:90:HVMMTBBXX:7:2205:18639:19830, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 85587, Read name K00178:90:HVMMTBBXX:7:2127:19898:30028, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 85591, Read name K00178:90:HVMMTBBXX:7:2207:24139:13289, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 85607, Read name K00178:90:HVMMTBBXX:7:2220:17898:17737, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 85676, Read name K00178:90:HVMMTBBXX:7:2220:15777:47928, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 85712, Read name K00178:90:HVMMTBBXX:7:1209:21724:4040, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 85735, Read name K00178:90:HVMMTBBXX:7:2110:26951:19249, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 87166, Read name K00178:90:HVMMTBBXX:7:1202:13190:37501, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 87331, Read name K00178:90:HVMMTBBXX:7:2217:25053:25105, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 90743, Read name K00178:90:HVMMTBBXX:7:1208:6086:46715, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 92991, Read name K00178:90:HVMMTBBXX:7:1217:29589:21289, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 104772, Read name K00178:90:HVMMTBBXX:7:1105:25266:38064, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 111916, Read name K00178:90:HVMMTBBXX:7:1223:25865:3899, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 113406, Read name K00178:90:HVMMTBBXX:7:1106:25794:29448, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 113909, Read name K00178:90:HVMMTBBXX:7:2226:15838:44834, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 113955, Read name K00178:90:HVMMTBBXX:7:2128:16051:47172, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 114662, Read name K00178:90:HVMMTBBXX:7:2201:9475:26951, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 117987, Read name K00178:90:HVMMTBBXX:7:1221:16995:43638, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 118977, Read name K00178:90:HVMMTBBXX:7:2203:14235:9526, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 119315, Read name K00178:90:HVMMTBBXX:7:2117:8085:26617, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 120887, Read name K00178:90:HVMMTBBXX:7:1113:1874:46733, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 121046, Read name K00178:90:HVMMTBBXX:7:1103:6725:40156, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 121192, Read name K00178:90:HVMMTBBXX:7:2212:7872:27479, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 121610, Read name K00178:90:HVMMTBBXX:7:1207:17381:14871, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 123351, Read name K00178:90:HVMMTBBXX:7:1127:20161:23346, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 124803, Read name K00178:90:HVMMTBBXX:7:2206:26981:32455, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 125592, Read name K00178:90:HVMMTBBXX:7:2108:16518:5745, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 125860, Read name K00178:90:HVMMTBBXX:7:1115:13971:22960, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 126248, Read name K00178:90:HVMMTBBXX:7:1122:26677:31576, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 126925, Read name K00178:90:HVMMTBBXX:7:1213:31741:40315, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 129432, Read name K00178:90:HVMMTBBXX:7:1210:20649:20814, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 140826, Read name K00178:90:HVMMTBBXX:7:2217:7273:19759, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 141087, Read name K00178:90:HVMMTBBXX:7:2107:25073:39664, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 141465, Read name K00178:90:HVMMTBBXX:7:2206:23267:7486, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 141733, Read name K00178:90:HVMMTBBXX:7:1106:26920:12374, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 143057, Read name K00178:90:HVMMTBBXX:7:2216:21176:29466, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 143459, Read name K00178:90:HVMMTBBXX:7:2122:13078:21623, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 144244, Read name K00178:90:HVMMTBBXX:7:2111:17980:7082, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 144997, Read name K00178:90:HVMMTBBXX:7:2104:20892:31189, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 144999, Read name K00178:90:HVMMTBBXX:7:2104:20963:31101, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 146566, Read name K00178:90:HVMMTBBXX:7:2123:25357:42513, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 146738, Read name K00178:90:HVMMTBBXX:7:1226:15392:41458, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 148255, Read name K00178:90:HVMMTBBXX:7:2211:11332:27848, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 149042, Read name K00178:90:HVMMTBBXX:7:2116:14336:15610, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 149246, Read name K00178:90:HVMMTBBXX:7:1202:7578:18036, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 149589, Read name K00178:90:HVMMTBBXX:7:2102:10287:45695, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 151477, Read name K00178:90:HVMMTBBXX:7:2204:23541:3530, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 151872, Read name K00178:90:HVMMTBBXX:7:1102:17685:18704, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+ERROR: Record 152555, Read name K00178:90:HVMMTBBXX:7:2221:28452:38592, Mate CIGAR String (MC Attribute) present for a read whose mate is unmapped
+Maximum output of [100] errors reached.
+[Fri Jun 29 22:17:15 BST 2018] picard.sam.ValidateSamFile done. Elapsed time: 0.02 minutes.
+Runtime.totalMemory()=2058354688
+To get help, see http://broadinstitute.github.io/picard/index.html#GettingHelp

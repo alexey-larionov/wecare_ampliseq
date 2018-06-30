@@ -1,0 +1,55 @@
+Job id: 3080937
+Job name: s02_summarise_fastqc
+Allocated node: cpu-e-7
+Time: Thu 21 Jun 16:08:36 BST 2018
+
+Initial working folder:
+/rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/s02_trimming_and_fastqc
+
+------------------ Output ------------------
+
+Summarise fastqc
+Thu 21 Jun 16:08:36 BST 2018
+
+base_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq
+data_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d01_source_data/fastqc
+output_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d01_source_data/fastqc_summary
+read_counts_file: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d01_source_data/fastqc_summary/read_counts.txt
+summary_file: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d01_source_data/fastqc_summary/summary.txt
+
+Found 1082 fast-qc folders
+Completed
+Thu 21 Jun 16:09:14 BST 2018
+
+Quick checks
+
+1083 /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d01_source_data/fastqc_summary/read_counts.txt
+sample_no	illumina_id	lane_no	read_no	Count
+94	S143	L007	R1	654753
+95	S517	L008	R2	1673642
+9	S346	L008	R2	897600
+410	S424	L008	R1	794365
+122	S112	L007	R2	826199
+17	S30	L007	R2	951404
+134	S451	L008	R2	699984
+338	S495	L008	R2	1121393
+529	S390	L008	R2	752765
+
+94	S143	L007	R1	654753
+94	S143	L007	R2	654753
+
+1083 /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d01_source_data/fastqc_summary/summary.txt
+sample_no	illumina_id	lane_no	read_no	Basic_Statistics	Per_base_sequence_quality	Per_tile_sequence_quality	Per_sequence_quality_scores	Per_base_sequence_content	Per_sequence_GC_content	Per_base_N_content	Sequence_Length_Distribution	Sequence_Duplication_Levels	Overrepresented_sequences	Adapter_Content
+94	S143	L007	R1	PASS	PASS	PASS	PASS	FAIL	FAIL	PASS	WARN	FAIL	FAIL	PASS
+95	S517	L008	R2	PASS	PASS	WARN	PASS	FAIL	FAIL	WARN	WARN	FAIL	FAIL	PASS
+9	S346	L008	R2	PASS	PASS	WARN	PASS	FAIL	FAIL	PASS	WARN	FAIL	WARN	PASS
+410	S424	L008	R1	PASS	PASS	PASS	PASS	WARN	FAIL	WARN	WARN	FAIL	FAIL	PASS
+122	S112	L007	R2	PASS	PASS	WARN	PASS	FAIL	FAIL	PASS	WARN	FAIL	FAIL	PASS
+17	S30	L007	R2	PASS	PASS	WARN	PASS	FAIL	FAIL	WARN	WARN	FAIL	FAIL	PASS
+134	S451	L008	R2	PASS	PASS	WARN	PASS	FAIL	FAIL	WARN	WARN	FAIL	FAIL	PASS
+338	S495	L008	R2	PASS	PASS	WARN	PASS	FAIL	FAIL	WARN	WARN	FAIL	FAIL	PASS
+529	S390	L008	R2	PASS	PASS	WARN	PASS	FAIL	FAIL	WARN	WARN	FAIL	FAIL	PASS
+
+94	S143	L007	R1	PASS	PASS	PASS	PASS	FAIL	FAIL	PASS	WARN	FAIL	FAIL	PASS
+94	S143	L007	R2	PASS	PASS	WARN	PASS	FAIL	FAIL	PASS	WARN	FAIL	FAIL	PASS
+

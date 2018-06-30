@@ -1,0 +1,207 @@
+Job id: 3386653
+Job name: s01_alignment
+Allocated node: cpu-e-169
+Time: Fri 29 Jun 16:28:21 BST 2018
+
+Initial working folder:
+/rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f03a_alignment
+
+------------------ Output ------------------
+
+Alignment of wecare ampliseq data
+Fri 29 Jun 16:28:21 BST 2018
+
+trimmed_fastq_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d02_trimmed_fastq/fastq
+raw_bam_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d03_bams/n01_raw_bams
+bwa: /rds/project/erf33/rds-erf33-medgen/tools/bwa/bwa-0.7.17/bwa
+bwa_index: /rds/project/erf33/rds-erf33-medgen/tools/bwa/bwa-0.7.17/indices/b37_decoy/b37d_bwtsw
+samtools: /rds/project/erf33/rds-erf33-medgen/tools/samtools/samtools-1.8/bin/samtools
+
+Detected 541 PE samples in the fastq folder
+Made 181 batches of up to 3 samples each
+
+16:29:21 Done batch 1
+16:30:16 Done batch 2
+16:30:57 Done batch 3
+16:32:16 Done batch 4
+16:33:24 Done batch 5
+16:34:08 Done batch 6
+16:34:46 Done batch 7
+16:35:39 Done batch 8
+16:36:49 Done batch 9
+16:37:34 Done batch 10
+16:38:36 Done batch 11
+16:39:18 Done batch 12
+16:40:04 Done batch 13
+16:40:56 Done batch 14
+16:41:41 Done batch 15
+16:42:29 Done batch 16
+16:43:09 Done batch 17
+16:43:55 Done batch 18
+16:45:17 Done batch 19
+16:46:00 Done batch 20
+16:46:52 Done batch 21
+16:47:50 Done batch 22
+16:48:41 Done batch 23
+16:49:49 Done batch 24
+16:50:58 Done batch 25
+16:51:39 Done batch 26
+16:52:31 Done batch 27
+16:53:28 Done batch 28
+16:54:20 Done batch 29
+16:55:03 Done batch 30
+16:55:57 Done batch 31
+16:57:04 Done batch 32
+16:57:48 Done batch 33
+16:58:40 Done batch 34
+16:59:22 Done batch 35
+17:00:23 Done batch 36
+17:01:21 Done batch 37
+17:02:12 Done batch 38
+17:03:08 Done batch 39
+17:04:05 Done batch 40
+17:05:03 Done batch 41
+17:05:48 Done batch 42
+17:06:26 Done batch 43
+17:07:18 Done batch 44
+17:08:42 Done batch 45
+17:09:27 Done batch 46
+17:10:16 Done batch 47
+17:11:05 Done batch 48
+17:12:00 Done batch 49
+17:12:49 Done batch 50
+17:13:36 Done batch 51
+17:14:22 Done batch 52
+17:15:22 Done batch 53
+17:17:14 Done batch 54
+17:17:59 Done batch 55
+17:18:56 Done batch 56
+17:19:48 Done batch 57
+17:20:32 Done batch 58
+17:21:21 Done batch 59
+17:22:28 Done batch 60
+17:23:22 Done batch 61
+17:24:14 Done batch 62
+17:25:15 Done batch 63
+17:26:02 Done batch 64
+17:26:53 Done batch 65
+17:27:51 Done batch 66
+17:28:31 Done batch 67
+17:29:19 Done batch 68
+17:30:09 Done batch 69
+17:31:04 Done batch 70
+17:31:54 Done batch 71
+17:33:00 Done batch 72
+17:33:52 Done batch 73
+17:34:31 Done batch 74
+17:35:20 Done batch 75
+17:35:54 Done batch 76
+17:36:45 Done batch 77
+17:37:29 Done batch 78
+17:38:22 Done batch 79
+17:39:33 Done batch 80
+17:40:34 Done batch 81
+17:42:28 Done batch 82
+17:43:15 Done batch 83
+17:44:10 Done batch 84
+17:45:03 Done batch 85
+17:45:51 Done batch 86
+17:46:35 Done batch 87
+17:47:31 Done batch 88
+17:48:34 Done batch 89
+17:49:56 Done batch 90
+17:51:08 Done batch 91
+17:52:00 Done batch 92
+17:53:08 Done batch 93
+17:53:51 Done batch 94
+17:54:33 Done batch 95
+17:55:24 Done batch 96
+17:56:14 Done batch 97
+17:57:06 Done batch 98
+17:58:03 Done batch 99
+17:58:46 Done batch 100
+17:59:37 Done batch 101
+18:00:41 Done batch 102
+18:01:47 Done batch 103
+18:02:50 Done batch 104
+18:04:03 Done batch 105
+18:04:53 Done batch 106
+18:05:41 Done batch 107
+18:06:35 Done batch 108
+18:07:26 Done batch 109
+18:08:00 Done batch 110
+18:08:44 Done batch 111
+18:09:20 Done batch 112
+18:10:00 Done batch 113
+18:10:39 Done batch 114
+18:11:26 Done batch 115
+18:12:09 Done batch 116
+18:13:09 Done batch 117
+18:14:54 Done batch 118
+18:15:44 Done batch 119
+18:17:04 Done batch 120
+18:18:01 Done batch 121
+18:18:53 Done batch 122
+18:19:33 Done batch 123
+18:20:11 Done batch 124
+18:21:01 Done batch 125
+18:21:44 Done batch 126
+18:22:27 Done batch 127
+18:23:18 Done batch 128
+18:24:02 Done batch 129
+18:25:12 Done batch 130
+18:26:18 Done batch 131
+18:27:11 Done batch 132
+18:27:47 Done batch 133
+18:28:24 Done batch 134
+18:29:11 Done batch 135
+18:30:07 Done batch 136
+18:32:06 Done batch 137
+18:32:53 Done batch 138
+18:33:46 Done batch 139
+18:35:11 Done batch 140
+18:35:58 Done batch 141
+18:36:45 Done batch 142
+18:37:27 Done batch 143
+18:38:06 Done batch 144
+18:38:36 Done batch 145
+18:39:22 Done batch 146
+18:40:01 Done batch 147
+18:40:55 Done batch 148
+18:41:51 Done batch 149
+18:42:33 Done batch 150
+18:43:32 Done batch 151
+18:44:13 Done batch 152
+18:44:49 Done batch 153
+18:45:33 Done batch 154
+18:46:12 Done batch 155
+18:46:56 Done batch 156
+18:48:00 Done batch 157
+18:48:57 Done batch 158
+18:50:25 Done batch 159
+18:51:07 Done batch 160
+18:51:51 Done batch 161
+18:52:34 Done batch 162
+18:53:21 Done batch 163
+18:54:01 Done batch 164
+18:55:09 Done batch 165
+18:55:55 Done batch 166
+18:57:09 Done batch 167
+18:58:14 Done batch 168
+18:58:56 Done batch 169
+18:59:44 Done batch 170
+19:00:33 Done batch 171
+19:01:27 Done batch 172
+19:02:21 Done batch 173
+19:03:06 Done batch 174
+19:04:08 Done batch 175
+19:04:56 Done batch 176
+19:06:00 Done batch 177
+19:07:08 Done batch 178
+19:08:08 Done batch 179
+19:09:03 Done batch 180
+19:09:43 Done batch 181
+
+Done all tasks
+Fri 29 Jun 19:09:43 BST 2018
+

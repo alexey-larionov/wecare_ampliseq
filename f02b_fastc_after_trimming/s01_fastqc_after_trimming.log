@@ -1,0 +1,62 @@
+Job id: 3357977
+Job name: s01_fastqc_after_trimming
+Allocated node: cpu-e-250
+Time: Thu 28 Jun 16:19:37 BST 2018
+
+Initial working folder:
+/rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f04_fastc_after_trimming
+
+------------------ Output ------------------
+
+FastQC afetr trimming
+Thu 28 Jun 16:19:37 BST 2018
+
+FastQC v0.11.7
+
+base_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq
+fastq_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d02_trimmed_fastq/fastq
+fastqc_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d02_trimmed_fastq/fastqc
+
+Made 37 batches of 30 files
+
+16:20:38 Done batch 1
+16:21:25 Done batch 2
+16:22:07 Done batch 3
+16:22:48 Done batch 4
+16:23:31 Done batch 5
+16:23:58 Done batch 6
+16:24:38 Done batch 7
+16:25:10 Done batch 8
+16:26:01 Done batch 9
+16:26:35 Done batch 10
+16:27:25 Done batch 11
+16:27:53 Done batch 12
+16:28:19 Done batch 13
+16:28:47 Done batch 14
+16:29:22 Done batch 15
+16:30:08 Done batch 16
+16:30:53 Done batch 17
+16:31:46 Done batch 18
+16:32:35 Done batch 19
+16:33:00 Done batch 20
+16:33:40 Done batch 21
+16:34:00 Done batch 22
+16:34:18 Done batch 23
+16:35:13 Done batch 24
+16:35:41 Done batch 25
+16:36:31 Done batch 26
+16:37:00 Done batch 27
+16:38:01 Done batch 28
+16:38:24 Done batch 29
+16:38:50 Done batch 30
+16:39:15 Done batch 31
+16:40:04 Done batch 32
+16:40:35 Done batch 33
+16:41:25 Done batch 34
+16:41:53 Done batch 35
+16:42:38 Done batch 36
+16:42:52 Done batch 37
+
+Done all tasks
+Thu 28 Jun 16:42:52 BST 2018
+

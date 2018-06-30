@@ -1,0 +1,21 @@
+Job id: 3360678
+Job name: s03_count_35N_reads
+Allocated node: cpu-e-10
+Time: Thu 28 Jun 18:04:29 BST 2018
+
+Initial working folder:
+/rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f04_fastc_after_trimming
+
+------------------ Output ------------------
+
+Conunt Nx35 reads after trimming
+Thu 28 Jun 18:04:29 BST 2018
+
+base_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq
+fastq_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d02_trimmed_fastq/fastq
+counts_file: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d02_trimmed_fastq/count_35N_reads/count_35N_reads.txt
+
+Found 1082 fastq files
+Done all fastq files
+Thu 28 Jun 19:18:36 BST 2018
+

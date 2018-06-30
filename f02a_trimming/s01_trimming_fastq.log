@@ -1,0 +1,68 @@
+Job id: 3356404
+Job name: s01_trimming_fastq
+Allocated node: cpu-e-235
+Time: Thu 28 Jun 15:33:45 BST 2018
+
+Initial working folder:
+/rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f03_trimming
+
+------------------ Output ------------------
+
+Trimming of fastq files
+Thu 28 Jun 15:33:45 BST 2018
+
+Python 2.7.10
+cutadapt version
+1.16
+
+base_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq
+source_fastq_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d01_source_data/180522_K00178_0090_BHVMMTBBXX_alarionov
+trimmed_fastq_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d02_trimmed_fastq/fastq
+
+cutadapt_trim_qual: 20
+cutadapt_min_len: 50
+max_n_fraction: 0.5
+
+Made 37 batches of up to 15 samples each
+
+15:35:08 Done batch 1
+15:36:20 Done batch 2
+15:37:25 Done batch 3
+15:38:47 Done batch 4
+15:39:56 Done batch 5
+15:40:52 Done batch 6
+15:41:58 Done batch 7
+15:42:59 Done batch 8
+15:44:28 Done batch 9
+15:45:22 Done batch 10
+15:47:19 Done batch 11
+15:48:20 Done batch 12
+15:49:23 Done batch 13
+15:50:22 Done batch 14
+15:51:27 Done batch 15
+15:52:41 Done batch 16
+15:54:39 Done batch 17
+15:56:04 Done batch 18
+15:57:19 Done batch 19
+15:58:15 Done batch 20
+15:59:32 Done batch 21
+16:00:23 Done batch 22
+16:01:04 Done batch 23
+16:02:55 Done batch 24
+16:03:52 Done batch 25
+16:05:03 Done batch 26
+16:06:09 Done batch 27
+16:08:17 Done batch 28
+16:09:03 Done batch 29
+16:09:57 Done batch 30
+16:10:58 Done batch 31
+16:12:29 Done batch 32
+16:13:35 Done batch 33
+16:14:47 Done batch 34
+16:15:49 Done batch 35
+16:16:57 Done batch 36
+16:17:24 Done batch 37
+
+Done all tasks
+Thu 28 Jun 16:17:24 BST 2018
+

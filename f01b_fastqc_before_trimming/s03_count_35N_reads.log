@@ -1,0 +1,22 @@
+Job id: 3360732
+Job name: s03_count_35N_reads
+Allocated node: cpu-e-23
+Time: Thu 28 Jun 18:12:16 BST 2018
+
+Initial working folder:
+/rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f02_fastqc_before_trimming
+
+------------------ Output ------------------
+
+Conunt Nx35 reads before trimming
+Thu 28 Jun 18:12:16 BST 2018
+
+base_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq
+fastq_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d01_source_data/180522_K00178_0090_BHVMMTBBXX_alarionov
+counts_file: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d01_source_data/count_35N_reads/count_35N_reads.txt
+
+Found 1082 fastq files
+Done all fastq files
+Thu 28 Jun 19:42:08 BST 2018
+
+slurmstepd: error: Exceeded step memory limit at some point.
