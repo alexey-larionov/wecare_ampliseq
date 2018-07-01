@@ -1,0 +1,50 @@
+Clean and validate raw bam
+Fri 29 Jun 22:42:37 BST 2018
+
+sample: 103_S147_L007
+
+raw_bam_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d03_bams/n01_raw_bams
+clean_bam_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d03_bams/n02_clean_bams
+
+picard: /rds/project/erf33/rds-erf33-medgen/tools/picard/picard-2.18.7/picard.jar
+htsjdk: /rds/project/erf33/rds-erf33-medgen/tools/htsjdk/htsjdk-2.16.0/htsjdk-2.16.0-4-gc4912e9-SNAPSHOT.jar
+
+openjdk version "1.8.0_171"
+OpenJDK Runtime Environment (build 1.8.0_171-b10)
+OpenJDK 64-Bit Server VM (build 25.171-b10, mixed mode)
+
+library: wecare_ampliseq_01
+platform: illumina
+flowcell: HVMMTBBXX
+
+Started fixing mate-pairs
+22:42:38.373 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/rds/project/erf33/rds-erf33-medgen/tools/picard/picard-2.18.7/picard.jar!/com/intel/gkl/native/libgkl_compression.so
+Completed fixing mate-pairs: 22:42:59
+
+Started sorting by coordinate
+22:42:59.732 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/rds/project/erf33/rds-erf33-medgen/tools/picard/picard-2.18.7/picard.jar!/com/intel/gkl/native/libgkl_compression.so
+Completed sorting by coordinate: 22:43:11
+
+Started fixing bam bins field errors
+Completed fixing bam bins field errors: 29Jun2018_22:43:18
+
+Started cleaning BAM file
+22:43:19.368 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/rds/project/erf33/rds-erf33-medgen/tools/picard/picard-2.18.7/picard.jar!/com/intel/gkl/native/libgkl_compression.so
+Completed bam cleaning: 22:43:27
+
+Started adding read group information
+22:43:28.043 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/rds/project/erf33/rds-erf33-medgen/tools/picard/picard-2.18.7/picard.jar!/com/intel/gkl/native/libgkl_compression.so
+Completed indexing and adding read group information: 22:43:37
+
+Started bam validation
+22:43:38.154 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/rds/project/erf33/rds-erf33-medgen/tools/picard/picard-2.18.7/picard.jar!/com/intel/gkl/native/libgkl_compression.so
+[Fri Jun 29 22:43:38 BST 2018] ValidateSamFile INPUT=/rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d03_bams/n02_clean_bams/103_S147_L007_fixmate_sort_binfix_clean_rg.bam    MODE=VERBOSE MAX_OUTPUT=100 IGNORE_WARNINGS=false VALIDATE_INDEX=true INDEX_VALIDATION_STRINGENCY=EXHAUSTIVE IS_BISULFITE_SEQUENCED=false MAX_OPEN_TEMP_FILES=8000 SKIP_MATE_VALIDATION=false VERBOSITY=INFO QUIET=false VALIDATION_STRINGENCY=STRICT COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_INDEX=false CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json USE_JDK_DEFLATER=false USE_JDK_INFLATER=false
+[Fri Jun 29 22:43:38 BST 2018] Executing as al720@cpu-e-33.data.cluster on Linux 3.10.0-693.25.7.el7.csd3.x86_64 amd64; OpenJDK 64-Bit Server VM 1.8.0_171-b10; Deflater: Intel; Inflater: Intel; Provider GCS is not available; Picard version: 2.18.7-SNAPSHOT
+No errors found
+[Fri Jun 29 22:43:43 BST 2018] picard.sam.ValidateSamFile done. Elapsed time: 0.09 minutes.
+Runtime.totalMemory()=1897922560
+Completed bam validation: 22:43:43
+
+Done all tasks
+Fri 29 Jun 22:43:43 BST 2018
+

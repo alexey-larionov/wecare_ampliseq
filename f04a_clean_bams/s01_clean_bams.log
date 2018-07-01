@@ -1,0 +1,56 @@
+Job id: 3472701
+Job name: s01_clean_bams
+Allocated node: cpu-e-411
+Time: Sun  1 Jul 19:14:16 BST 2018
+
+Initial working folder:
+/rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f04a_clean_bams
+
+------------------ Output ------------------
+
+Launch cleaning of BAMs in batches
+Sun  1 Jul 19:14:16 BST 2018
+
+scripts_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f04a_clean_bams
+raw_bam_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d03_raw_bam/bam
+clean_bam_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d04_clean_bam/bam
+
+Java:
+openjdk version "1.8.0_171"
+OpenJDK Runtime Environment (build 1.8.0_171-b10)
+OpenJDK 64-Bit Server VM (build 25.171-b10, mixed mode)
+
+picard: /rds/project/erf33/rds-erf33-medgen/tools/picard/picard-2.18.7/picard.jar
+
+library: wecare_ampliseq_01
+platform: illumina
+flowcell: HVMMTBBXX
+
+Detected 541 bam files in the source folder
+Made 19 batches of up to 30 samples each
+
+19:17:40 Done batch 1
+19:21:09 Done batch 2
+19:24:03 Done batch 3
+19:26:50 Done batch 4
+19:30:25 Done batch 5
+19:35:02 Done batch 6
+19:37:41 Done batch 7
+19:40:48 Done batch 8
+19:45:26 Done batch 9
+19:48:33 Done batch 10
+19:51:46 Done batch 11
+19:56:11 Done batch 12
+19:59:08 Done batch 13
+20:04:09 Done batch 14
+20:06:31 Done batch 15
+20:10:11 Done batch 16
+20:13:10 Done batch 17
+20:16:06 Done batch 18
+20:17:12 Done batch 19
+
+Done all tasks
+Sun  1 Jul 20:17:12 BST 2018
+
+slurmstepd: error: Exceeded step memory limit at some point.
+slurmstepd: error: Exceeded job memory limit at some point.

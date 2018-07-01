@@ -1,0 +1,23 @@
+Job id: 
+Job name: 
+Allocated node: login-e-13
+Time: Sun  1 Jul 20:42:45 BST 2018
+
+Initial working folder:
+
+
+------------------ Output ------------------
+
+Check results of BAMs validation
+Sun  1 Jul 20:42:45 BST 2018
+
+clean_bam_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d04_clean_bam/bam
+
+Detected 541 cleaned bam files in the folder
+Checked samples: 541
+Passed samples: 541
+Failed samples: 0
+
+Done all tasks
+Sun  1 Jul 20:42:46 BST 2018
+

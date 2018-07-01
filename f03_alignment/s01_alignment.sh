@@ -2,7 +2,7 @@
 
 # s01_alignment.sh
 # Started: Alexey Larionov, 29Jun2018
-# Last updated: Alexey Larionov, 29Jun2018
+# Last updated: Alexey Larionov, 30Jun2018
 
 # Use:
 # sbatch s01_alignment.sh
@@ -69,7 +69,7 @@ base_folder="/rds/project/erf33/rds-erf33-medgen"
 data_folder="${base_folder}/users/alexey/wecare_ampliseq/data_and_results"
 
 trimmed_fastq_folder="${data_folder}/d02_trimmed_fastq/fastq"
-raw_bam_folder="${data_folder}/d03_bams/n01_raw_bams"
+raw_bam_folder="${data_folder}/d03_raw_bam/bam"
 
 rm -fr "${raw_bam_folder}" # remove bams folder, if existed
 mkdir -p "${raw_bam_folder}"
