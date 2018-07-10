@@ -112,22 +112,80 @@ clean_bam="${clean_bam_folder}/${sample}_fixmate_sort_rg.bam"
 # Parce the sample name (just in case)
 IFS="_" read sample_no illumina_id lane_no <<< ${sample}
 
-# ------- Collect samtools flagstat metrics ------- #
+
+# ------- Preparing targets for local realignment around indels ------- #
+
+# Notes:
+
+# Takes 10-20min for an initial dedupped bam of 5-10GB, whith up to 50% of 
+# bases on targets.  Time estimates for the later steps refer to similar initial bams.     
+
+# GATK tools supporting -nt option (RealignerTargetCreator and UnifyedGenotyper) require 
+# more memory for running in parallel (-nt) than for running in a single-thread mode.
+# Broad's web site suggests that RealignerTargetCreator with one data thread may need ~2G.
+# Accordingly, in -nt 12 mode it would require ~24G.  Darwin node provide 60G, which is 
+# more than enough to support -nt 12 run. 
 
 # Progress report
-echo "Collecting samtools flagstat metrics"
-echo "------------------------------------"
-echo ""
+echo "Preparing targets for local realignment around indels"
+echo "Started: $(date +%d%b%Y_%H:%M:%S)"
 
-# samtools flagstats metrics file name
-samtools_flagstats_file="${samtools_metrics_folder}/flagstats/${sample}_flagstat.txt"
+# File names
+dedup_bam="${dedup_bam_folder}/${sample}_dedup.bam"
+idr_targets="${idr_folder}/${sample}_idr_targets.intervals"
+idr_targets_log="${idr_folder}/${sample}_idr_targets.log"
 
-# Collect flagstat metrics using samtools (later may be switched to gatk FlagStat)
-"${samtools}" flagstat "${clean_bam}" > "${samtools_flagstats_file}"
+# Process sample
+"${java}" -Xmx60g -jar "${gatk}" \
+  -T RealignerTargetCreator \
+	-R "${ref_genome}" \
+  -L "${targets_intervals}" -ip 10 \
+  -known "${indels_1k}" \
+  -known "${indels_mills}" \
+	-I "${dedup_bam}" \
+  -o "${idr_targets}" \
+  -nt 12 2> "${idr_targets_log}"
 
 # Progress report
-echo "Completed collecting samtools flagstat metrics: $(date +%H:%M:%S)"
+echo "Completed: $(date +%d%b%Y_%H:%M:%S)"
 echo ""
+
+# ------- Performing local realignment around indels ------- #
+
+# Notes:
+# Takes 15-30min.
+# -nt / -nct options are NOT available to paralellise IndelRealigner by multi-thrading: 
+# this is one of the non-parallelisable bottlenecks when processing one sample at a time.
+# -L at this step REMOVES all data outside of the target intervals from the output bam file.   
+# To preserve all reads the -L option could be omitted at this step.
+
+# Progress report
+echo "Performing local realignment around indels"
+echo "Started: $(date +%d%b%Y_%H:%M:%S)"
+
+# File names
+idr_bam="${proc_bam_folder}/${sample}_idr.bam"
+idr_log="${idr_folder}/${sample}_idr.log"
+
+# Process sample
+"${java}" -Xmx60g -jar "${gatk}" \
+  -T IndelRealigner \
+	-R "${ref_genome}" \
+  -L "${targets_intervals}" -ip 10 \
+  -targetIntervals "${idr_targets}" \
+  -known "${indels_1k}" \
+  -known "${indels_mills}" \
+  -I "${dedup_bam}" \
+  -o "${idr_bam}" 2> "${idr_log}"
+
+# Remove dedup bam 
+rm -f "${dedup_bam}"
+rm -f "${dedup_bam%bam}bai"
+
+# Progress report
+echo "Completed: $(date +%d%b%Y_%H:%M:%S)"
+echo ""
+
 
 # ------- Collect gatk flagstat metrics ------- #
 

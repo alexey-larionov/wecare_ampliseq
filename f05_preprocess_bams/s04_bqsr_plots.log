@@ -1,0 +1,61 @@
+Job id: 3643428
+Job name: s04_bqsr_plots
+Allocated node: cpu-e-271
+Time: Tue 10 Jul 22:29:01 BST 2018
+
+Initial working folder:
+/rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f05_preprocess_bams
+
+------------------ Output ------------------
+
+Make BQSR plots (in batches)
+Tue 10 Jul 22:29:01 BST 2018
+
+--- Folders ---
+
+scripts_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f05_preprocess_bams
+
+bqsr_bam_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d05_preprocessed_bam/bqsr_bam
+tables_before_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d05_preprocessed_bam/bqsr_tables_before
+tables_after_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d05_preprocessed_bam/bqsr_tables_after
+plots_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d05_preprocessed_bam/bqsr_plots
+
+--- Tools ---
+
+gatk: /rds/project/erf33/rds-erf33-medgen/tools/gatk/gatk-4.0.5.2/gatk
+r_folder: /rds/project/erf33/rds-erf33-medgen/tools/r/R-3.2.0/bin
+
+java:
+openjdk version "1.8.0_171"
+OpenJDK Runtime Environment (build 1.8.0_171-b10)
+OpenJDK 64-Bit Server VM (build 25.171-b10, mixed mode)
+
+Detected 541 bqsr bam files
+Made 22 batches of up to 25 samples each
+
+22:29:12 Done batch 1
+22:29:22 Done batch 2
+22:29:31 Done batch 3
+22:29:40 Done batch 4
+22:29:49 Done batch 5
+22:29:58 Done batch 6
+22:30:09 Done batch 7
+22:30:18 Done batch 8
+22:30:28 Done batch 9
+22:30:37 Done batch 10
+22:30:46 Done batch 11
+22:30:55 Done batch 12
+22:31:05 Done batch 13
+22:31:14 Done batch 14
+22:31:23 Done batch 15
+22:31:33 Done batch 16
+22:31:42 Done batch 17
+22:31:51 Done batch 18
+22:32:00 Done batch 19
+22:32:09 Done batch 20
+22:32:18 Done batch 21
+22:32:25 Done batch 22
+
+Done all tasks
+Tue 10 Jul 22:32:25 BST 2018
+

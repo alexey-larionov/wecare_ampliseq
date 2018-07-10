@@ -1,0 +1,66 @@
+Job id: 3642577
+Job name: s01_bqsr_tables_before
+Allocated node: cpu-e-289
+Time: Tue 10 Jul 19:21:21 BST 2018
+
+Initial working folder:
+/rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f05_preprocess_bams
+
+------------------ Output ------------------
+
+Make BQSR tables before recalibration (in batches)
+Tue 10 Jul 19:21:21 BST 2018
+
+--- Folders ---
+
+scripts_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f05_preprocess_bams
+
+clean_bam_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d04_clean_bam/bam
+tables_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d05_preprocessed_bam/bqsr_tables_before
+
+--- Tools ---
+
+gatk: /rds/project/erf33/rds-erf33-medgen/tools/gatk/gatk-4.0.5.2/gatk
+
+java:
+openjdk version "1.8.0_171"
+OpenJDK Runtime Environment (build 1.8.0_171-b10)
+OpenJDK 64-Bit Server VM (build 25.171-b10, mixed mode)
+
+--- Resources ---
+
+ref_genome: /rds/project/erf33/rds-erf33-medgen/resources/gatk_bundle/b37/decompressed/human_g1k_v37_decoy.fasta
+targets_interval_list: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d00_targets/targets.interval_list
+dbsnp: /rds/project/erf33/rds-erf33-medgen/resources/gatk_bundle/b37/decompressed/dbsnp_138.b37.vcf
+indels_1k: /rds/project/erf33/rds-erf33-medgen/resources/gatk_bundle/b37/decompressed/1000G_phase1.indels.b37.vcf
+indels_mills: /rds/project/erf33/rds-erf33-medgen/resources/gatk_bundle/b37/decompressed/Mills_and_1000G_gold_standard.indels.b37.vcf
+
+Detected 541 bam files in the source folder
+Made 22 batches of up to 25 samples each
+
+19:22:54 Done batch 1
+19:24:16 Done batch 2
+19:25:49 Done batch 3
+19:27:02 Done batch 4
+19:28:12 Done batch 5
+19:29:52 Done batch 6
+19:31:55 Done batch 7
+19:33:06 Done batch 8
+19:34:20 Done batch 9
+19:36:25 Done batch 10
+19:37:57 Done batch 11
+19:39:12 Done batch 12
+19:40:36 Done batch 13
+19:41:40 Done batch 14
+19:43:42 Done batch 15
+19:45:02 Done batch 16
+19:47:16 Done batch 17
+19:48:18 Done batch 18
+19:49:31 Done batch 19
+19:51:10 Done batch 20
+19:52:18 Done batch 21
+19:53:27 Done batch 22
+
+Done all tasks
+Tue 10 Jul 19:53:27 BST 2018
+

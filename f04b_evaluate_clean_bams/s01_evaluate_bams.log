@@ -1,0 +1,73 @@
+Job id: 3514960
+Job name: s01_evaluate_bams
+Allocated node: cpu-e-290
+Time: Tue  3 Jul 19:36:53 BST 2018
+
+Initial working folder:
+/rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f04b_evaluate_clean_bams
+
+------------------ Output ------------------
+
+Launch evaluating BAMs in batches
+Tue  3 Jul 19:36:53 BST 2018
+
+--- Folders ---
+
+scripts_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f04b_evaluate_clean_bams
+
+clean_bam_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d04_clean_bam/bam
+
+samtools_metrics_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d04_clean_bam/samtools
+gatk_metrics_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d04_clean_bam/gatk
+picard_metrics_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d04_clean_bam/picard
+qualimap_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d04_clean_bam/qualimap_on_targets
+
+--- Tools ---
+
+samtools: /rds/project/erf33/rds-erf33-medgen/tools/samtools/samtools-1.8/bin/samtools
+gatk: /rds/project/erf33/rds-erf33-medgen/tools/gatk/gatk-4.0.5.2/gatk
+picard: /rds/project/erf33/rds-erf33-medgen/tools/picard/picard-2.18.7/picard.jar
+qualimap: /rds/project/erf33/rds-erf33-medgen/tools/qualimap/qualimap_v2.2.1/qualimap
+r_folder: /rds/project/erf33/rds-erf33-medgen/tools/r/R-3.2.0/bin
+
+java:
+openjdk version "1.8.0_171"
+OpenJDK Runtime Environment (build 1.8.0_171-b10)
+OpenJDK 64-Bit Server VM (build 25.171-b10, mixed mode)
+
+--- Resources ---
+
+ref_genome: /rds/project/erf33/rds-erf33-medgen/resources/gatk_bundle/b37/decompressed/human_g1k_v37_decoy.fasta
+amplicons_interval_list: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d00_targets/amplicons.interval_list
+targets_interval_list: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d00_targets/targets.interval_list
+targets_bed: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d00_targets/targets_6.bed
+
+Detected 541 bam files in the source folder
+Made 22 batches of up to 25 samples each
+
+19:39:47 Done batch 1
+19:42:29 Done batch 2
+19:45:26 Done batch 3
+19:48:03 Done batch 4
+19:50:43 Done batch 5
+19:53:47 Done batch 6
+19:57:22 Done batch 7
+20:00:01 Done batch 8
+20:02:38 Done batch 9
+20:06:04 Done batch 10
+20:08:59 Done batch 11
+20:11:36 Done batch 12
+20:14:22 Done batch 13
+20:16:50 Done batch 14
+20:20:19 Done batch 15
+20:22:59 Done batch 16
+20:26:48 Done batch 17
+20:29:12 Done batch 18
+20:31:49 Done batch 19
+20:34:52 Done batch 20
+20:37:28 Done batch 21
+20:39:41 Done batch 22
+
+Done all tasks
+Tue  3 Jul 20:39:41 BST 2018
+

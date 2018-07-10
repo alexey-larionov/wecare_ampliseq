@@ -1,0 +1,70 @@
+Job id: 
+Job name: 
+Allocated node: login-e-9
+Time: Mon  9 Jul 18:33:22 BST 2018
+
+Initial working folder:
+
+
+------------------ Output ------------------
+
+Make summary tables and plots for BAMs QC
+Mon  9 Jul 18:33:22 BST 2018
+
+--- Folders ---
+
+scripts_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f04b_evaluate_clean_bams
+
+clean_bam_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d04_clean_bam
+
+bams_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d04_clean_bam/bam
+samtools_metrics_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d04_clean_bam/samtools
+gatk_metrics_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d04_clean_bam/gatk
+picard_metrics_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d04_clean_bam/picard
+qualimap_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d04_clean_bam/qualimap_on_targets
+
+--- Tools ---
+
+gnuplot: /rds/project/erf33/rds-erf33-medgen/tools/gnuplot/gnuplot-5.0.1/bin/gnuplot
+LiberationSansRegularTTF: /rds/project/erf33/rds-erf33-medgen/tools/fonts/liberation-fonts-ttf-2.00.1/LiberationSans-Regular.ttf
+
+qualimap: /rds/project/erf33/rds-erf33-medgen/tools/qualimap/qualimap_v2.2.1/qualimap
+r_folder: /rds/project/erf33/rds-erf33-medgen/tools/r/R-3.2.0/bin
+
+Detected 541 bam files in the source folder
+
+Made summary table for samtools flagststs
+Made plot for samtools flagststs reads counts
+
+Made gatk flagstat summary table
+Made plot for gatk flagstat read counts
+Made plot for gatk flagstat percent of proper pairs
+
+Made summary table for picard insert sizes
+Made plot for picard insert sizes
+
+Made table for picard alignment summary metrics
+Made plot for picard alignment summary metrics READS_ALIGNED_IN_PAIRS
+Made plot for picard alignment summary metrics PCT_READS_ALIGNED_IN_PAIRS
+Made plot for picard alignment summary metrics MEAN_READ_LENGTH
+Made plot for picard alignment summary metrics PF_INDEL_RATE
+Made plot for picard alignment summary metrics PF_MISMATCH_RATE
+Made plot for picard alignment summary metrics STRAND_BALANCE
+
+Made table for picard targeted pcr metrics
+Made plot for picard pcr targeting metrics PCT_OFF_AMPLICON
+Made plot for picard pcr targeting metrics ZERO_CVG_TARGETS_PCT
+Made plot for picard pcr targeting metrics ZERO_CVG_TARGETS_PCT
+Made plot for picard pcr targeting metrics MEAN_TARGET_COVERAGE
+Made plot for picard pcr targeting metrics MEDIAN_TARGET_COVERAGE
+Made plot for picard pcr targeting metrics HET_SNP_SENSITIVITY
+Made plot for picard pcr targeting metrics PCT_TARGET_BASES_10X
+Made plot for picard pcr targeting metrics PCT_TARGET_BASES_20X
+Made plot for picard pcr targeting metrics PCT_TARGET_BASES_30X
+
+Started multi-sample qualimap
+Completed multi-sample qualimap
+
+Completed all summary tables and plots for BAMs QC
+Mon  9 Jul 18:34:27 BST 2018
+
