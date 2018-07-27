@@ -1,0 +1,39 @@
+Job id: 4038656
+Job name: s03_genotype_gvcfs
+Allocated node: cpu-e-91
+Time: Fri 27 Jul 20:01:57 BST 2018
+
+Initial working folder:
+/rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f06a_call_variants
+
+------------------ Output ------------------
+
+Genotype merged gVCF files
+Fri 27 Jul 20:01:57 BST 2018
+
+--- Folders ---
+
+scripts_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f06a_call_variants
+
+merged_gvcf_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d06_gvcf/merged_gvcf
+raw_vcf: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d06_gvcf/raw_vcf/wecare_ampliseq_raw.vcf.gz
+genotyping_log: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d06_gvcf/raw_vcf/wecare_ampliseq_raw_vcf.log
+
+--- Tools ---
+
+gatk: /rds/project/erf33/rds-erf33-medgen/tools/gatk/gatk-4.0.5.2/gatk
+
+java:
+openjdk version "1.8.0_171"
+OpenJDK Runtime Environment (build 1.8.0_171-b10)
+OpenJDK 64-Bit Server VM (build 25.171-b10, mixed mode)
+
+--- Resources ---
+
+ref_genome: /rds/project/erf33/rds-erf33-medgen/resources/gatk_bundle/b37/decompressed/human_g1k_v37_decoy.fasta
+targets_interval_list: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d00_targets/targets.interval_list
+
+Started genotyping ...
+Completed genotyping
+Fri 27 Jul 20:12:28 BST 2018
+
