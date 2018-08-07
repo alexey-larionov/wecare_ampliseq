@@ -1,0 +1,37 @@
+Job id: 4346732
+Job name: s01_bsfstat_raw_vcf
+Allocated node: cpu-e-114
+Time: Mon  6 Aug 16:14:45 BST 2018
+
+Initial working folder:
+/rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f06b_evauate_raw_vcf
+
+------------------ Output ------------------
+
+Calculate and plot bcf-stats for raw VCF
+Mon  6 Aug 16:14:45 BST 2018
+
+--- Files and folders ---
+
+scripts_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f06b_evauate_raw_vcf
+
+vcf: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d06_raw_vcf/raw_vcf/wecare_ampliseq_raw.vcf.gz
+stats_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d06_raw_vcf/bcf_stats
+stats: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d06_raw_vcf/bcf_stats/wecare_ampliseq.vchk
+
+--- Tools ---
+
+bcftools: /rds/project/erf33/rds-erf33-medgen/tools/bcftools/bcftools-1.8/bin/bcftools
+plot_vcfstats: /rds/project/erf33/rds-erf33-medgen/tools/bcftools/bcftools-1.8/bin/plot-vcfstats
+
+
+Calculating stats...
+Making plots...
+Parsing bcftools stats output: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d06_raw_vcf/bcf_stats/wecare_ampliseq.vchk
+Plotting graphs: python plot.py
+Creating PDF: pdflatex summary.tex >plot-vcfstats.log 2>&1
+Finished: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d06_raw_vcf/bcf_stats/summary.pdf
+
+Done
+Mon  6 Aug 16:14:49 BST 2018
+
