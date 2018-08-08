@@ -1,0 +1,41 @@
+Job id: 4383954
+Job name: s03_filter_vqsr_vcf
+Allocated node: cpu-e-381
+Time: Wed  8 Aug 16:42:58 BST 2018
+
+Initial working folder:
+/rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f07_filter_variants
+
+------------------ Output ------------------
+
+Filter VCF using pre-selected target variants
+Wed  8 Aug 16:42:58 BST 2018
+
+--- Files and folders ---
+
+scripts_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f07_filter_variants
+input_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d07_filtered_vcf/vqsr
+output_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d07_filtered_vcf/bcftools
+
+source_vcf: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d07_filtered_vcf/vqsr/wecare_ampliseq_vqsr.vcf
+filtered_vcf: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d07_filtered_vcf/bcftools/wecare_ampliseq_filt_8745.vcf
+targets_file: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d07_filtered_vcf/bcftools/targets.txt
+
+--- Tools ---
+
+bcftools: /rds/project/erf33/rds-erf33-medgen/tools/bcftools/bcftools-1.8/bin/bcftools
+
+Num of targets:
+8,745
+
+Num of variants in source vcf:
+33,229
+
+Filtering VCF...
+
+Num of variants in filtered vcf:
+8,745
+
+Done all tasks
+Wed  8 Aug 16:43:05 BST 2018
+
