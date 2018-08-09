@@ -1,0 +1,492 @@
+---
+title: "filter wecare ampliseq vqsr vcf v03"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+started: AL07Aug2018  
+last updated: AL09Aug2018
+
+# Summary
+
+- Import data to R  
+- Make plots equivalent to bcf-stats  
+- Make histograms for depth, VQSR-LOD etc
+- Select thresholds for filtering  
+- Filter variants:
+
+###33,229 -> 5,830
+
+###First, exclude genotypes:
+dp < 10  
+dp > 10,000  
+gq < 20  
+
+###Then exclude variants:  
+Call rate < 85% (~1/2)  
+Failed VQSR (~1/2)  
+DP > 1M
+
+# start_section
+
+<style>
+pre {
+  overflow-x: auto;
+}
+pre code {
+  word-wrap: normal;
+  white-space: pre;
+}
+</style>
+
+```{r set_width, echo=F}
+
+options(width = 999)
+# https://stackoverflow.com/questions/36845178/width-of-r-code-chunk-output-in-rmarkdown-files-knitr-ed-to-html
+
+```
+
+```{r start_section}
+
+Sys.time()
+rm(list=ls())
+graphics.off()
+
+library(knitr)
+library(vcfR) # the main work-horse
+library(stringr) # for word
+library(tidyr) # for separate
+library(ggplot2)
+
+base_folder="/Users/alexey/Documents/wecare/ampliseq/a07_filter_variants_v3"
+opts_knit$set(root.dir = base_folder)
+options(stringsAsFactors = FALSE)
+
+```
+
+# read_vcf  
+
+**Strange NAs in well covered positions (see NA-s in 1_3669317 and 1_3669318)**  
+However, NA rate is ~7%, so this should affect only a small proportion of data  
+
+```{r read_vcf}
+
+# Source VCF
+vcf_file=paste(base_folder,"wecare_ampliseq_vqsr.vcf",sep="/")
+
+# read vcf to vcfR object
+vcfr <- read.vcfR(vcf_file)
+  
+# get data from header and fixed columns
+meta_fix <- vcfR2tidy(vcfr, info_only=T)
+    
+# data frame with meta-information from vcf header
+meta.df <- meta_fix$meta
+dim(meta.df)
+meta.df
+
+# data frame with fixed columns (including parsed INFO, convert tibble to data-frame)
+fixed.df <- as.data.frame(meta_fix$fix)
+dim(fixed.df)
+colnames(fixed.df)
+fixed.df[15:20,1:7]
+
+# extract genotypes matrix (with numeric representation of alleles)
+gt_num.mx <- extract.gt(vcfr) # original numeric codes: 0/1, 1/1 etc
+dim(gt_num.mx)
+gt_num.mx[15:20,1:5]
+sum(is.na(gt_num.mx))
+sum(!is.na(gt_num.mx))
+sum(is.na(gt_num.mx))/sum(!is.na(gt_num.mx))
+
+# extract genotypes matrix (keep alleles as ACGT)
+gt_chr.mx <- extract.gt(vcfr, return.alleles = TRUE) # encoded as A/A, T/G etc
+dim(gt_chr.mx)
+gt_chr.mx[15:20,1:5]
+NA -> gt_chr.mx[gt_chr.mx=="."]
+gt_chr.mx[15:20,1:5]
+
+# extract DP, GQ and AD matrices
+dp.mx <- extract.gt(vcfr, element = "DP", as.numeric = TRUE)
+dim(dp.mx)
+dp.mx[15:20,1:5]
+
+gq.mx <- extract.gt(vcfr, element = "GQ", as.numeric = TRUE)
+dim(gq.mx)
+gq.mx[15:20,1:5]
+
+ad.mx <- extract.gt(vcfr, element = "AD")
+dim(ad.mx)
+ad.mx[15:20,1:5]
+
+# Clean-up
+rm(vcf_file, vcfr, meta_fix)
+
+```
+
+# add rownames to fixed.df
+
+```{r add_rownames}
+
+# Generate row names
+key <- paste(fixed.df$CHROM, fixed.df$POS, sep="_")
+
+# Explore and check identity with genotypes matrix
+key[1:5]
+rownames(gt_num.mx)[1:5]
+sum(key != rownames(gt_num.mx))
+
+# Assign the rownames
+key -> rownames(fixed.df)
+
+# Clean-up
+rm(key)
+
+```
+
+# explore QC metrics
+
+```{r make_pass_varaibe}
+
+pass <- rep(F, length(fixed.df$FILTER))
+T -> pass[fixed.df$FILTER=="PASS"]
+
+```
+
+## Variants cumulative per all samples
+
+```{r qc_variants}
+
+# NA rate
+sum(is.na(gt_num.mx))
+sum(is.na(gt_num.mx))/(nrow(gt_num.mx)*ncol(gt_num.mx))
+
+# VQSR
+sum(is.na(fixed.df$FILTER))
+sort(table(fixed.df$FILTER), decreasing = T)
+hist(fixed.df$VQSLOD)
+hist(fixed.df$VQSLOD[fixed.df$VQSLOD > -50])
+min(fixed.df$VQSLOD[fixed.df$FILTER=="PASS"])
+max(fixed.df$VQSLOD)
+ggplot(fixed.df) +
+  aes(VQSLOD, fill=as.factor(pass)) + 
+  geom_density(colour="black", alpha=0.3) + 
+  xlim(-50,45)
+
+# DP (cumulative depth per variant)
+sum(is.na(fixed.df$DP))
+hist(fixed.df$DP, lab=T, ylim=c(0,35000))$breaks
+
+mean(fixed.df$DP)
+median(fixed.df$DP)
+
+ggplot(fixed.df) +
+  aes(DP, fill=as.factor(pass)) + 
+  geom_density(colour="black", alpha=0.3) + 
+  xlim(0,200000)
+
+ggplot(fixed.df) +
+  aes(DP, fill=as.factor(pass)) + 
+  geom_density(colour="black", alpha=0.3) + 
+  xlim(200000,2000000)
+
+```
+
+## Depth and genotype quality per variant per sample
+
+```{r qc_samples}
+
+# dp.mx (individual depth per sample)
+sum(is.na(dp.mx))
+
+hist(dp.mx)$breaks
+hist(dp.mx[dp.mx < 10000])$breaks
+hist(dp.mx[dp.mx < 100])$breaks
+
+sum(dp.mx < 10, na.rm=T)/sum(!is.na(dp.mx))
+sum(dp.mx > 10000, na.rm=T)/sum(!is.na(dp.mx))
+
+# gq.mx (individual genotype quality per sample)
+sum(is.na(gq.mx))
+hist(gq.mx)
+sum(gq.mx < 20, na.rm=T)/sum(!is.na(gq.mx))
+
+```
+
+## Samples
+
+```{r call_rates_per_sample}
+
+# Function to get call rate
+call_rate.udf <- function(x){sum(!is.na(x))/length(x)}
+
+# Get call rates
+call_rates <- apply(gt_num.mx,2,call_rate.udf)
+hist(call_rates, labels = T, ylim=c(0,600), main="Call rates per sample")
+
+names(call_rates) <- colnames(gt_num.mx)
+sort(call_rates[call_rates < 0.8])
+
+# Clean-up
+rm(call_rate.udf, call_rates)
+
+```
+
+# filter variants  
+
+33,229 -> 8,745  
+
+###First, exclude genotypes:  
+dp < 10  
+dp > 10,000  
+gq < 20  
+
+###Then exclude variants:  
+Call rate < 80%  
+Failed VQSR  
+
+###To consider:
+DP > 50,000 ?  
+
+##filter_genotypes  
+
+```{r filter_genotypes}
+
+# Initialise matrix for filtered variants
+gt_num_filt.mx <- gt_num.mx
+
+# Check NA rate
+sum(is.na(gt_num_filt.mx))
+sum(is.na(gt_num_filt.mx))/(nrow(gt_num_filt.mx)*ncol(gt_num_filt.mx))
+
+# Filter genotypes
+NA -> gt_num_filt.mx[ dp.mx < 10 ]
+NA -> gt_num_filt.mx[ dp.mx > 10000 ]
+NA -> gt_num_filt.mx[ gq.mx < 20 ]
+
+# Check NA rate
+sum(is.na(gt_num_filt.mx))
+sum(is.na(gt_num_filt.mx))/(nrow(gt_num_filt.mx)*ncol(gt_num_filt.mx))
+
+```
+
+##calculate_call_rates
+
+```{r call_rates_per_variant}
+
+# Function to get call rate
+call_rate.udf <- function(x){sum(!is.na(x))/length(x)}
+
+# Get call rates
+call_rates <- apply(gt_num_filt.mx,1,call_rate.udf)
+hist(call_rates, main="Call rates per variant")
+
+# Clean-up
+rm(call_rate.udf)
+
+```
+
+##filter_varaints
+
+```{r filter_varaints}
+
+# Check intial num of variants
+dim(gt_num_filt.mx)
+
+# Prepare variants filter
+vqsr_passed <- fixed.df$FILTER == "PASS"
+sum(vqsr_passed)
+
+call_rate_passed <- call_rates >= 0.85
+sum(call_rate_passed)
+
+dp_passed <- fixed.df$DP < 1000000
+sum(dp_passed)
+
+selected <- vqsr_passed & call_rate_passed & dp_passed
+sum(selected)
+
+# Apply variants filter to all tables
+gt_num_filt.mx <- gt_num_filt.mx[selected,]
+gt_chr_filt.mx <- gt_chr.mx[selected,]
+ad_filt.mx <- ad.mx[selected,]
+dp_filt.mx <- dp.mx[selected,]
+gq_filt.mx <- gq.mx[selected,]
+fixed_filt.df <- fixed.df[selected,]
+
+# Clean-up
+rm(vqsr_passed, call_rate_passed, dp_passed, call_rates, selected)
+
+```
+
+##explore_result
+
+```{r explore_result}
+
+# Dimentions of tables
+dim(gt_num_filt.mx)
+dim(gt_chr_filt.mx)
+dim(ad_filt.mx)
+dim(dp_filt.mx)
+dim(gq_filt.mx)
+dim(fixed_filt.df)
+
+# NA rate
+sum(is.na(gt_num_filt.mx))
+sum(is.na(gt_num_filt.mx))/(nrow(gt_num_filt.mx)*ncol(gt_num_filt.mx))
+
+# Selected histograms
+hist(fixed_filt.df$DP, lab=T, ylim=c(0,5000))
+hist(fixed_filt.df$VQSLOD)
+
+# Function to get call rate
+call_rate.udf <- function(x){sum(!is.na(x))/length(x)}
+
+# Get call rates
+call_rates <- apply(gt_num_filt.mx,2,call_rate.udf)
+hist(call_rates, labels = T, ylim=c(0,550), main="Call rates per sample (after variants' filtering)")
+
+names(call_rates) <- colnames(gt_num.mx)
+sort(call_rates[call_rates < 0.8])
+
+# Get call rates
+call_rates <- apply(gt_num_filt.mx,1,call_rate.udf)
+hist(call_rates, xlim=c(0,1), main="Call rates per variant (after variants' filtering)")
+
+# Clean-up
+rm(call_rate.udf, call_rates)
+
+```
+
+# Export retained variants
+
+```{r export_retained_variants}
+
+# Prepare output data
+targets.df <- fixed_filt.df[,c("CHROM","POS")]
+
+# Save to text file
+out_file=paste(base_folder, "targets.txt", sep="/")
+write.table(targets.df, file=out_file, sep="\t", quote=F, row.names=F, col.names=F)
+
+# Clean-up
+rm(targets.df, out_file)
+
+```
+
+## More exploring/filtering
+
+make histograms for each metric (split by PASS)  
+
+To do more (?):  
+- add more metrics?  
+- plot 2/3 metrics against each other?  
+
+https://software.broadinstitute.org/gatk/documentation/article.php?id=6925  
+
+https://software.broadinstitute.org/gatk/documentation/article.php?id=3225  
+
+**Low informative** (goods):  
+QD, MQRankSum, MQ (<62)  
+
+**Informative trend** (goods):  
+FS (<5), SOR(<3), ReadPosRankSum (>-1)
+
+###QD
+
+```{r QD}
+
+ggplot(fixed.df) +
+  aes(QD, fill=as.factor(pass)) + 
+  geom_density(colour="black", alpha=0.3)
+
+```
+
+###FS
+
+```{r FS}
+
+ggplot(fixed.df) +
+  aes(FS, fill=as.factor(pass)) + 
+  geom_density(colour="black", alpha=0.3)
+
+ggplot(fixed.df) +
+  aes(FS, fill=as.factor(pass)) + 
+  geom_density(colour="black", alpha=0.3) +
+  xlim(0, 20)
+
+```
+
+###SOR
+
+```{r SOR}
+
+ggplot(fixed.df) +
+  aes(SOR, fill=as.factor(pass)) + 
+  geom_density(colour="black", alpha=0.3)
+
+```
+
+###MQ
+
+```{r MQ}
+
+ggplot(fixed.df) +
+  aes(MQ, fill=as.factor(pass)) + 
+  geom_density(colour="black", alpha=0.3)
+
+ggplot(fixed.df) +
+  aes(MQ, fill=as.factor(pass)) + 
+  geom_density(colour="black", alpha=0.3) +
+  xlim(50,75)
+
+```
+
+###MQRankSum
+
+```{r MQRankSum}
+
+ggplot(fixed.df) +
+  aes(MQRankSum, fill=as.factor(pass)) + 
+  geom_density(colour="black", alpha=0.3)
+
+ggplot(fixed.df) +
+  aes(MQRankSum, fill=as.factor(pass)) + 
+  geom_density(colour="black", alpha=0.3) +
+  xlim(-0.5, 0.5)
+
+```
+
+###ReadPosRankSum
+
+```{r ReadPosRankSum}
+
+ggplot(fixed.df) +
+  aes(ReadPosRankSum, fill=as.factor(pass)) + 
+  geom_density(colour="black", alpha=0.3)
+
+ggplot(fixed.df) +
+  aes(ReadPosRankSum, fill=as.factor(pass)) + 
+  geom_density(colour="black", alpha=0.3) +
+  xlim(-10,10)
+
+```
+
+# save_results
+
+```{r save_results}
+
+save.image(paste(base_folder, "explore_wecare_ampliseq_vqsr_vcf.RData", sep="/"))
+
+```
+
+# final_section
+
+```{r final_section}
+
+ls()
+sessionInfo()
+Sys.time()
+
+```
