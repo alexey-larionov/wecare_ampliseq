@@ -1,0 +1,110 @@
+---
+title: "count_filtered_variants_in_wes"
+author: "Alexey Larionov"
+date: "09/08/2018"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+started: AL09Aug2018  
+last updated: AL09Aug2018
+
+# Summary
+
+- Read filtered WES data and list of genes  
+- Count variants in the genes  
+
+Number of variants in WES was **3,028**  
+Number of variants in Ampliseq is **5,830**  
+
+###Filtering in Ampliseq:  
+
+First, exclude genotypes  
+dp < 10  
+dp > 10,000  
+gq < 20  
+
+Then exclude variants:  
+Call rate < 85% (~1/2)  
+Failed VQSR (~1/2)  
+DP > 1M  
+
+# start_section
+
+<style>
+pre {
+  overflow-x: auto;
+}
+pre code {
+  word-wrap: normal;
+  white-space: pre;
+}
+</style>
+
+```{r set_width, echo=F}
+
+options(width = 999)
+# https://stackoverflow.com/questions/36845178/width-of-r-code-chunk-output-in-rmarkdown-files-knitr-ed-to-html
+
+```
+
+```{r start_section}
+
+Sys.time()
+rm(list=ls())
+graphics.off()
+
+base_folder="/Users/alexey/Documents/wecare/ampliseq/a08_wecare_only_wes"
+library(knitr)
+opts_knit$set(root.dir = base_folder)
+options(stringsAsFactors = FALSE)
+
+```
+
+# Read data
+
+```{r read_data}
+
+load(paste(base_folder,"r02_filter_genotypes_and_variants_wecare_only.RData",sep="/"))
+base_folder="/Users/alexey/Documents/wecare/ampliseq/a08_wecare_only_wes"
+
+genes <- scan(paste(base_folder,"candidate_genes_ampliseq_107G_EF_20171122.txt",sep="/"),
+              what="character")
+
+```
+
+# Count and explore variants in selected genes
+
+```{r count_variants}
+
+dim(vv.df)
+selected_genes.df <- vv.df[vv.df$SYMBOL %in% genes,]
+dim(selected_genes.df)
+
+selected_genes <- unique(as.vector(selected_genes.df$SYMBOL))
+length(selected_genes)
+setdiff(genes, selected_genes)
+
+min(selected_genes.df$QUAL)
+min(selected_genes.df$AS_VQSLOD, na.rm=T)
+
+```
+
+# save_results
+
+```{r save_results}
+
+save.image(paste(base_folder, "count_filtered_variants_in_wes.RData", sep="/"))
+
+```
+
+# final_section
+
+```{r final_section}
+
+ls()
+sessionInfo()
+Sys.time()
+
+```

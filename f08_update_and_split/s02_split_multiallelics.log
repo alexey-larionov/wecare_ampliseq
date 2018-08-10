@@ -1,0 +1,60 @@
+Job id: 4445381
+Job name: s02_split_multiallelics
+Allocated node: cpu-e-213
+Time: Fri 10 Aug 19:56:23 BST 2018
+
+Initial working folder:
+/rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f08_update_and_split
+
+------------------ Output ------------------
+
+Split multiallelic sites, then calculate and plot bcf-stats for the split VCF
+Fri 10 Aug 19:56:23 BST 2018
+
+--- Files and folders ---
+
+scripts_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f08_update_and_split
+
+source_vcf: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d08_processed_vcf/wecare_ampliseq_upd.vcf
+
+--- Tools ---
+
+bcftools: /rds/project/erf33/rds-erf33-medgen/tools/bcftools/bcftools-1.8/bin/bcftools
+plot_vcfstats: /rds/project/erf33/rds-erf33-medgen/tools/bcftools/bcftools-1.8/bin/plot-vcfstats
+gatk: /rds/project/erf33/rds-erf33-medgen/tools/gatk/gatk-3.8-0/GenomeAnalysisTK-3.8-0/GenomeAnalysisTK.jar
+
+openjdk version "1.8.0_171"
+OpenJDK Runtime Environment (build 1.8.0_171-b10)
+OpenJDK 64-Bit Server VM (build 25.171-b10, mixed mode)
+
+--- Resourses ---
+
+targets_interval_list: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d00_targets/targets.interval_list
+ref_genome: /rds/project/erf33/rds-erf33-medgen/resources/gatk_bundle/b37/decompressed/human_g1k_v37_decoy.fasta
+
+Num of variants in source vcf:
+5,830
+
+Splitting multiallelic sites ...
+
+Lines   total/split/realigned/skipped:	5830/110/0/0
+
+Num of variants in split vcf:
+5,961
+
+Trimming variants ...
+
+Num of variants in split trimmed vcf:
+5,961
+
+Adding variant ID to INFO field ...
+
+Calculating bcf-stats ...
+
+Parsing bcftools stats output: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d08_processed_vcf/bcf_stats/wecare_ampliseq.vchk
+Plotting graphs: python plot.py
+Creating PDF: pdflatex summary.tex >plot-vcfstats.log 2>&1
+Finished: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d08_processed_vcf/bcf_stats/summary.pdf
+Done all tasks
+Fri 10 Aug 19:56:45 BST 2018
+
