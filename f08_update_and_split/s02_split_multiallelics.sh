@@ -128,7 +128,7 @@ split_vcf="${vcf_folder}/wecare_ampliseq_split.vcf"
 "${bcftools}" norm -m-both "${source_vcf}" > "${split_vcf}"
 echo ""
 
-# --- Check number of output variants --- #
+# --- Check number of split variants --- #
 echo "Num of variants in split vcf:"
 printf "%'d\n" $(grep -vc "^#" "${split_vcf}")
 echo ""
@@ -157,9 +157,29 @@ java -Xmx6g -jar "${gatk}" \
 # Note: 
 # The trimming does not change the num of variants, done just in case 
 
-# Check number of trimmed variants
+# --- Check number of trimmed variants --- #
 echo "Num of variants in split trimmed vcf:"
 printf "%'d\n" $(grep -vc "^#" "${split_trim_vcf}")
+echo ""
+
+# --- Remove * ALT after split --- #
+# * is for overlap with upstream deletion
+# It is removed because it cannot be interpreted by VEP
+
+# Progress report
+echo "Remov-ng * ALT after split ..."
+echo ""
+
+# File names
+split_trim_star_vcf="${vcf_folder}/wecare_ampliseq_split_trim_star.vcf"
+
+# Remove * ALT-s
+awk 'BEGIN {OFS="\t"} ; $5 != "*" ' "${split_trim_vcf}" > "${split_trim_star_vcf}"
+
+# --- Check number of variants w/o * ALTs --- #
+
+echo "Num of variants w/o * ALTs:"
+printf "%'d\n" $(grep -vc "^#" "${split_trim_star_vcf}")
 echo ""
 
 # --- Add variant ID to INFO field --- #
@@ -184,15 +204,15 @@ tmp3=$(mktemp --tmpdir="${tmp_folder}" "tmp3".XXXXXX)
 tmp4=$(mktemp --tmpdir="${tmp_folder}" "tmp4".XXXXXX)
 
 # Prepare data witout header
-grep -v "^#" "${split_trim_vcf}" > "${tmp1}"
+grep -v "^#" "${split_trim_star_vcf}" > "${tmp1}"
 awk '{printf("VarID=Var%09d\t%s\n", NR, $0)}' "${tmp1}" > "${tmp2}"
 awk 'BEGIN {OFS="\t"} ; { $9 = $9";"$1 ; print}' "${tmp2}" > "${tmp3}"
 cut -f2- "${tmp3}" > "${tmp4}"
 
 # Prepare header
-grep "^##" "${split_trim_vcf}" > "${output_vcf}"
+grep "^##" "${split_trim_star_vcf}" > "${output_vcf}"
 echo '##INFO=<ID=VarID,Number=1,Type=String,Description="Variant ID">' >> "${output_vcf}"
-grep "^#CHROM" "${split_trim_vcf}" >> "${output_vcf}"
+grep "^#CHROM" "${split_trim_star_vcf}" >> "${output_vcf}"
 
 # Append data to header in the output file
 cat "${tmp4}" >> "${output_vcf}"
@@ -218,6 +238,7 @@ stats="${stats_folder}/wecare_ampliseq.vchk"
 "${plot_vcfstats}" "${stats}" -p "${stats_folder}"
 
 # Completion message
+echo ""
 echo "Done all tasks"
 date
 echo ""

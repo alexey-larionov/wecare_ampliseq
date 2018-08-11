@@ -1,7 +1,7 @@
-Job id: 4445381
+Job id: 4455371
 Job name: s02_split_multiallelics
-Allocated node: cpu-e-213
-Time: Fri 10 Aug 19:56:23 BST 2018
+Allocated node: cpu-e-10
+Time: Sat 11 Aug 17:37:22 BST 2018
 
 Initial working folder:
 /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f08_update_and_split
@@ -9,7 +9,7 @@ Initial working folder:
 ------------------ Output ------------------
 
 Split multiallelic sites, then calculate and plot bcf-stats for the split VCF
-Fri 10 Aug 19:56:23 BST 2018
+Sat 11 Aug 17:37:22 BST 2018
 
 --- Files and folders ---
 
@@ -47,6 +47,11 @@ Trimming variants ...
 Num of variants in split trimmed vcf:
 5,961
 
+Remov-ng * ALT after split ...
+
+Num of variants w/o * ALTs:
+5,933
+
 Adding variant ID to INFO field ...
 
 Calculating bcf-stats ...
@@ -56,5 +61,5 @@ Plotting graphs: python plot.py
 Creating PDF: pdflatex summary.tex >plot-vcfstats.log 2>&1
 Finished: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d08_processed_vcf/bcf_stats/summary.pdf
 Done all tasks
-Fri 10 Aug 19:56:45 BST 2018
+Sat 11 Aug 17:37:49 BST 2018
 

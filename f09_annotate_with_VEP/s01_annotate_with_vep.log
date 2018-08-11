@@ -1,0 +1,49 @@
+Job id: 4455459
+Job name: s01_annotate_with_vep
+Allocated node: cpu-e-4
+Time: Sat 11 Aug 18:50:18 BST 2018
+
+Initial working folder:
+/rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f09_annotate_with_VEP
+
+------------------ Output ------------------
+
+Annotate vcf with vep
+Sat 11 Aug 18:50:18 BST 2018
+
+--- Files and folders ---
+
+scripts_folder: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/scripts_and_logs/f09_annotate_with_VEP
+
+source_vcf: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d08_processed_vcf/wecare_ampliseq.vcf
+output_vcf: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d09_annotated_with_vep/wecare_ampliseq_vep.vcf
+vep_report: /rds/project/erf33/rds-erf33-medgen/users/alexey/wecare_ampliseq/data_and_results/d09_annotated_with_vep/wecare_ampliseq_vep.html
+
+--- Tools and resources ---
+
+vep_script: /rds/project/erf33/rds-erf33-medgen/tools/ensembl/v91/ensembl-vep/vep
+vep_cache: /rds/project/erf33/rds-erf33-medgen/tools/ensembl/v91/ensembl-vep/grch37_cache
+
+
+This is perl 5, version 16, subversion 3 (v5.16.3) built for x86_64-linux-thread-multi
+(with 33 registered patches, see perl -V for more detail)
+
+Copyright 1987-2012, Larry Wall
+
+Perl may be copied only under the terms of either the Artistic License or the
+GNU General Public License, which may be found in the Perl 5 source kit.
+
+Complete documentation for Perl, including FAQ lists, should be found on
+this system using "man perl" or "perldoc perl".  If you have access to the
+Internet, point your browser at http://www.perl.org/, the Perl Home Page.
+
+
+--- Settings ---
+
+vep_fields: Location,Allele,Uploaded_variation,Consequence,IMPACT,Codons,Amino_acids,cDNA_position,CDS_position,Protein_position,VARIANT_CLASS,SIFT,PolyPhen,Existing_variation,CLIN_SIG,SOMATIC,PHENO,SYMBOL,SYMBOL_SOURCE,HGNC_ID,GENE_PHENO,MOTIF_NAME,MOTIF_POS,HIGH_INF_POS,MOTIF_SCORE_CHANGE,NEAREST,MAX_AF,MAX_AF_POPS,gnomAD_AF,gnomAD_AFR_AF,gnomAD_AMR_AF,gnomAD_ASJ_AF,gnomAD_EAS_AF,gnomAD_FIN_AF,gnomAD_NFE_AF,gnomAD_OTH_AF,gnomAD_SAS_AF,EXON,INTRON,DOMAINS,HGVSc,HGVSp,HGVS_OFFSET,Feature_type,Feature,ALLELE_NUM
+
+Running VEP-script...
+
+Done all tasks
+Sat 11 Aug 18:50:55 BST 2018
+
